@@ -2,11 +2,20 @@ import pyarrow.csv as pv
 import pyarrow.parquet as pq
 import os
 
-"""
-Function converts a CSV file to Parquet Format using Pyarrow for data handling and os for error checking.
-"""
-
 def csv_to_parquet(csv_file_path):
+    """
+    Function converts a CSV file to Parquet Format using Pyarrow for data handling and os for error checking.
+
+    Parameters:
+    csv_file_path: The path for the csv file
+
+    Exceptions:
+    FileNotFoundError: Check to see if file exists
+    PermissionError: Checks for permission issues accessing the file
+    ValueError: Checks if the CSV format is invalid
+    OSError: Checks for I/O issues
+    Exception: For all other unexpected errors
+    """
     try:
         # Check if the file exists
         if not os.path.exists(csv_file_path):
@@ -36,9 +45,6 @@ def csv_to_parquet(csv_file_path):
         print(f"An unexpected error occurred: {e}")
         raise
 
-"""
-Main block is used here to ensure that the function call only
-executes when the script is run directly, and not imported in a test or script.
-"""
+# Ensure that function is only ran directly and not when imported as a module
 if __name__ == "__main__":
-    csv_to_parquet('sample.csv')  # Change csv name here
+    csv_to_parquet('sample.csv')  # Change csv file path here
