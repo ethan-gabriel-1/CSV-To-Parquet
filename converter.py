@@ -36,7 +36,7 @@ def csv_to_parquet(csv_file_path):
         print(f"PermissionError: {e}")
         raise 
     except ValueError as e:
-        print(f"ValueError: Invalid CSV format - {e}")
+        print(f"ValueError: Invalid CSV format: {e}")
         raise
     except OSError as e:
         print(f"OSError: {e}")
