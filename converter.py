@@ -3,7 +3,7 @@ import pyarrow.parquet as pq
 import os
 
 """
-Function converts a CSV file to Parquet Format using Pyarrow and Os for error checking.
+Function converts a CSV file to Parquet Format using Pyarrow for data handling and os for error checking.
 """
 
 def csv_to_parquet(csv_file_path):
@@ -15,7 +15,7 @@ def csv_to_parquet(csv_file_path):
         # Read the CSV file into a table object
         table = pv.read_csv(csv_file_path)
         
-        # Write the pyarrow.table object to a Parquet file
+        # Write the pyarrow table object to a Parquet file
         parquet_file_path = csv_file_path.replace('csv', 'parquet')
         pq.write_table(table, parquet_file_path)
         
